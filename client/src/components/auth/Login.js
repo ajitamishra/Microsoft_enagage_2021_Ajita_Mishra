@@ -21,7 +21,7 @@ class Login extends Component {
         // redirect a logged in user to dashboard if he visits login/register routes
        
         if(this.props.auth.isAuthenticated && this.state.role=='Teacher') {
-            this.props.history.push("/teacher");
+            this.props.history.pushState("/teacher");
         }
         if(this.props.auth.isAuthenticated && this.state.role=='student') {
             this.props.history.push("/student");

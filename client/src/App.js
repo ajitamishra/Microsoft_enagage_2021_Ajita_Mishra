@@ -3,7 +3,6 @@ import Navbar from './components/Layout/Navbar';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
-import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
@@ -12,8 +11,12 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import { Component } from 'react';
-import Teacher from '../src/Teacher';
-import Student from '../src/Student';
+import Teacher from '../src/components/Teacher';
+import Student from '../src/components/Student';
+import AssignmentList from './components/Assignment/AssignmentList';
+import Assignment from './components/Assignment/AssignmentDetails';
+import AssignmentSubmissions from './components/Assignment/AssignmentSubmissions';
+import CreateAssignment from './components/Assignment/CreateAssignment';
 
 // check for token to keep user logged in
 
@@ -32,7 +35,7 @@ if(localStorage.jwtToken) {
     // logout user
     store.dispatch(logoutUser());
     // redirect to login
-    window.location.href = "./login";
+    window.location.href = "/";
   }
 }
 
@@ -49,9 +52,15 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/subjects/:id" component={AssignmentList} />
+            <Route exact path="/create-assignment/:subjectId" component={CreateAssignment} />
+            <Route exact path="/assignment/:subjectId/:assignmentId" component={Assignment} />
+            <Route exact path="/submission/:subjectId/:assignmentId" component={AssignmentSubmissions} />
+
+
             <Switch>
-            <PrivateRoute exact path="/teacher" component={Teacher} />
-              {/* {store.getState().auth.user.role==='Teacher'?<PrivateRoute exact path="/teacher" component={Teacher} />:<PrivateRoute exact path="/student" component={Student} />} */}
+            {/* <PrivateRoute exact path="/student" component={Student} /> */}
+              {store.getState().auth.user.role=='Teacher'?<PrivateRoute exact path="/teacher" component={Teacher} />:<PrivateRoute exact path="/student" component={Student} />}
               
           
             </Switch>

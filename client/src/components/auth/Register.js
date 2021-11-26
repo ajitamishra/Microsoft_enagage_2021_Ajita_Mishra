@@ -31,7 +31,7 @@ class Register extends Component {
   componentDidMount() {
     // redirect a logged in user to dashboard if he visits login/register routes
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/register");
     }
   }
 
