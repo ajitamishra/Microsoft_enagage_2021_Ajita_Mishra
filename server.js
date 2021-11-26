@@ -10,7 +10,6 @@ const methodoverride=require('method-override');
 const passport = require("passport");
 const users = require("./routes/api/users");
 const subjects = require("./routes/api/subjects");
-const router = express.Router();
 require("dotenv").config();
 
 
@@ -39,9 +38,7 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 // Routes
-router.get('/',(req,res)=>{
-  res.send('Server is up and running!');
-});
+
 
 app.use("/api/users", users);
 app.use("/api/subjects", subjects);
