@@ -10,6 +10,8 @@ const methodoverride=require('method-override');
 const passport = require("passport");
 const users = require("./routes/api/users");
 const subjects = require("./routes/api/subjects");
+const router = express.Router();
+
 
 
 const app=express();
@@ -37,6 +39,9 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 // Routes
+router.get('/',(req,res)=>{
+  res.send('Server is up and running!')
+})
 app.use("/api/users", users);
 app.use("/api/subjects", subjects);
 const port = process.env.PORT || 5000;
