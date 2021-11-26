@@ -40,8 +40,9 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 router.get('/',(req,res)=>{
-  res.send('Server is up and running!')
-})
+  res.send('Server is up and running!');
+});
+
 app.use("/api/users", users);
 app.use("/api/subjects", subjects);
 const port = process.env.PORT || 5000;
