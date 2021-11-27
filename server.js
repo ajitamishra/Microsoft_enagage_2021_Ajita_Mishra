@@ -44,4 +44,4 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/subjects", subjects);
 
-app.listen( process.env.PORT || 5000, () => console.log(`Server up and running on port ${port} !`));
+app.listen( process.env.PORT || 5000, () => console.log(`Server up and running on port !`));
