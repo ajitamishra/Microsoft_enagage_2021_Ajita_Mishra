@@ -10,11 +10,12 @@ const methodoverride=require('method-override');
 const passport = require("passport");
 const users = require("./routes/api/users");
 const subjects = require("./routes/api/subjects");
+const cors = require('cors')
 require("dotenv").config();
 
 
 const app=express();
-
+app.use(cors())
 app.use(
     bodyParser.urlencoded({
       extended: false
