@@ -60,7 +60,7 @@ class App extends Component {
 
             <Switch>
             {/* <PrivateRoute exact path="/student" component={Student} /> */}
-              {store.getState().auth.user.role=='Teacher'?<PrivateRoute exact path="/teacher" component={Teacher} />:<PrivateRoute exact path="/student" component={Student} />}
+              {store.getState().auth.user.role==='Teacher'?<PrivateRoute exact path="/teacher" component={Teacher} />:<PrivateRoute exact path="/student" component={Student} />}
               
           
             </Switch>

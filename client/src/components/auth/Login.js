@@ -20,10 +20,10 @@ class Login extends Component {
     componentDidMount() {
         // redirect a logged in user to dashboard if he visits login/register routes
        
-        if(this.props.auth.isAuthenticated && this.state.role=='Teacher') {
+        if(this.props.auth.isAuthenticated && this.state.role==='Teacher') {
             <Redirect to='/teacher'/>
         }
-        if(this.props.auth.isAuthenticated && this.state.role=='student') {
+        if(this.props.auth.isAuthenticated && this.state.role==='student') {
             <Redirect to='/student'/>
         }
 
@@ -31,12 +31,12 @@ class Login extends Component {
 
     componentWillReceiveProps(nextProps) {
 
-        if(nextProps.auth.isAuthenticated && this.state.role=='Teacher') {
+        if(nextProps.auth.isAuthenticated && this.state.role==='Teacher') {
             // push user to dashboard when they login
     
             this.props.history.push("/teacher");
         }
-        if(nextProps.auth.isAuthenticated && this.state.role=='Student') {
+        if(nextProps.auth.isAuthenticated && this.state.role==='Student') {
             // push user to dashboard when they login
     
             this.props.history.push("/student");
