@@ -57,6 +57,7 @@ Check on http://localhost:3000. Your app must be app and running.
 - /login :- Post request for login
 
 Please type role as 'Teacher' or 'Student'
+
 UserId for teacher can be prefixed with UT forex :- 'UT38'
 and for student can be prefixed with ST forex :- 'ST60'
 
