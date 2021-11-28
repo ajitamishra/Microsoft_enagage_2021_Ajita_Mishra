@@ -170,6 +170,8 @@ router.get("/subjects/:userId", async (req, res) => {
 
     const subjectDetails = await Promise.all(subjects.map(async (id) => {
       const meta = await Subject.findOne({ subject_id: id });
+      if(meta===null)
+      return {};
       return { title: meta.title, subjectId: meta.subject_id };
     }));
 

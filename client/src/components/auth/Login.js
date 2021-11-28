@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { loginUser } from '../../actions/authActions';
@@ -21,10 +21,10 @@ class Login extends Component {
         // redirect a logged in user to dashboard if he visits login/register routes
        
         if(this.props.auth.isAuthenticated && this.state.role=='Teacher') {
-            this.props.history.pushState("/teacher");
+            <Redirect to='/teacher'/>
         }
         if(this.props.auth.isAuthenticated && this.state.role=='student') {
-            this.props.history.push("/student");
+            <Redirect to='/student'/>
         }
 
     }
